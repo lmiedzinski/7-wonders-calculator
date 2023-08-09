@@ -1,0 +1,52 @@
+<div class="container-fluid py-3 h-100">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a [routerLink]="'/'" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">LM Bit - 7 Wonders Calculator</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <button class="btn" (click)="handleVersionUpdate()">
+          <i class="bi bi-arrow-clockwise"></i> Refresh
+        </button>
+        <button class="btn btn-success" *ngIf="isOnline">Online</button>
+        <button class="btn btn-danger" *ngIf="!isOnline">Offline</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">&copy; 2023 LM Łukasz Miedziński</span>
+    </div>
+  </footer>
+
+  <div class="w-100 position-absolute top-0" *ngIf="isUpdateAvailable">
+    <div class="alert alert-secondary m-2">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close"
+        (click)="handleUpdateDismiss()"></button>
+      A new version of this app is available.
+      <a href (click)="handleVersionUpdate()">Update now</a>
+    </div>
+  </div>
+
+  <div class="w-100 position-absolute bottom-0" *ngIf="currentOs !== osType.None">
+    <div class="alert alert-secondary m-2">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close"
+        (click)="handlePwaInstallDismiss()"></button>
+      <div *ngIf="currentOs === osType.Android" (click)="handleAndroidInstallPwa()">
+        Click here to add this WEB app to home screen
+      </div>
+      <div *ngIf="currentOs === osType.Ios">
+        To install this WEB app on your device, tap the "Menu" button
+        <i class="bi bi-box-arrow-up"></i>
+        and then "Add to home screen" button
+        <i class="bi bi-plus-square"></i>
+      </div>
+    </div>
+  </div>
+</div>
