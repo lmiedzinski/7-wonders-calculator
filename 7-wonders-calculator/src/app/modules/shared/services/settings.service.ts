@@ -1,6 +1,10 @@
+import { Injectable } from '@angular/core';
 import { AppSettings } from './../interfaces/appSettings';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class SettingsService {
   public appSettings$: Observable<AppSettings>;
 

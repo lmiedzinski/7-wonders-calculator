@@ -8,6 +8,5 @@ import { SettingsService } from './services/settings.service';
   declarations: [],
   imports: [CommonModule, NgbModule, ReactiveFormsModule],
   exports: [CommonModule, NgbModule, ReactiveFormsModule],
-  providers: [SettingsService],
 })
 export class SharedModule {}
