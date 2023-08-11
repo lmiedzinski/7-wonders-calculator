@@ -63,7 +63,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   onFormSubmit() {
     const value = this.settingsForm.value;
-    console.log('submitted', value);
     this.settingsService.saveAppSettings({
       isLeadersActive: value.activeExtensions?.leaders ?? false,
       isCitiesActive: value.activeExtensions?.cities ?? false,
