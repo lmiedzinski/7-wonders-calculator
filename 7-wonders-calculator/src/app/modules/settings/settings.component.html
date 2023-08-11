@@ -36,7 +36,8 @@
                                 <button class="btn btn-danger" type="button" id="button-addon2"
                                     (click)="removePlayer(i)"><i class="bi bi-trash"></i></button>
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" (click)="addPlayer()">+ Dodaj
+                            <button type="button" class="btn btn-primary mt-3" (click)="addPlayer()"
+                                [disabled]="players.length >= 7">+ Dodaj
                                 gracza</button>
                         </div>
                     </div>
