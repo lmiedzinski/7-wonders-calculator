@@ -2,12 +2,12 @@
   <header>
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
       <a [routerLink]="'/'" class="d-flex align-items-center text-dark text-decoration-none">
-        <span class="fs-4">LM Bit - 7 Wonders Calculator</span>
+        <span class="fs-4">7 Cudów Świata - Kalkulator</span>
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <button class="btn" (click)="handleVersionUpdate()">
-          <i class="bi bi-arrow-clockwise"></i> Refresh
+          <i class="bi bi-arrow-clockwise"></i> Odśwież
         </button>
         <button class="btn btn-success" *ngIf="isOnline">Online</button>
         <button class="btn btn-danger" *ngIf="!isOnline">Offline</button>
@@ -29,8 +29,8 @@
     <div class="alert alert-secondary m-2">
       <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close"
         (click)="handleUpdateDismiss()"></button>
-      A new version of this app is available.
-      <a href (click)="handleVersionUpdate()">Update now</a>
+      Dostępna jest nowsza wersja aplikacji.
+      <a href (click)="handleVersionUpdate()">Zaktualizuj</a>
     </div>
   </div>
 
@@ -39,12 +39,12 @@
       <button type="button" class="btn-close position-absolute top-0 end-0 m-1" aria-label="Close"
         (click)="handlePwaInstallDismiss()"></button>
       <div *ngIf="currentOs === osType.Android" (click)="handleAndroidInstallPwa()">
-        Click here to add this WEB app to home screen
+        Kliknij żeby dodać aplikację do ekranu głównego
       </div>
       <div *ngIf="currentOs === osType.Ios">
-        To install this WEB app on your device, tap the "Menu" button
+        W celu zainstalowania tej aplikacji na urządzeniu, dotknij przycisk "Menu"
         <i class="bi bi-box-arrow-up"></i>
-        and then "Add to home screen" button
+        a następnie wybierz "Dodaj to ekranu głównego"
         <i class="bi bi-plus-square"></i>
       </div>
     </div>

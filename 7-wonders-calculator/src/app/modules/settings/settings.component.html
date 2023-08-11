@@ -1,1 +1,54 @@
-<p>settings works!</p>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h3>Ustawienia</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="settingsForm" (ngSubmit)="onFormSubmit()">
+                    <div class="row" formGroupName="activeExtensions">
+                        <div class="col">
+                            <h4 class="mb-3">Dodatki używane w rozgrywce:</h4>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="leaders" formControlName="leaders">
+                                <label class="form-check-label" for="leaders">Liderzy</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="cities" formControlName="cities">
+                                <label class="form-check-label" for="cities">Miasta</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="armada" formControlName="armada">
+                                <label class="form-check-label" for="armada">Armada</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="edifice" formControlName="edifice">
+                                <label class="form-check-label" for="edifice">Budowle</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" formArrayName="players">
+                        <div class="col">
+                            <h4 class="mb-3 mt-3">Gracze:</h4>
+                            <div *ngFor="let player of players.controls; let i=index" class="input-group mb-3">
+                                <input id="player-{{ i }}" type="text" class="form-control"
+                                    placeholder="Imię gracza numer {{i+1}}" [formControlName]="i">
+                                <button class="btn btn-danger" type="button" id="button-addon2"
+                                    (click)="removePlayer(i)"><i class="bi bi-trash"></i></button>
+                            </div>
+                            <button type="button" class="btn btn-primary mt-3" (click)="addPlayer()">+ Dodaj
+                                gracza</button>
+                        </div>
+                    </div>
+                    <div class="row" formGroupName="activeExtensions">
+                        <div class="col">
+                            <hr />
+                            <button type="button" class="btn btn-danger me-2" [routerLink]="'/'">Wróć</button>
+                            <button type="submit" class="btn btn-success">Zapisz</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
