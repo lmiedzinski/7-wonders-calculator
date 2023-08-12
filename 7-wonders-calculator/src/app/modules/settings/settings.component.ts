@@ -23,7 +23,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
         (appSettings: AppSettings) => {
           this.appSettings = appSettings;
           this.settingsForm = this.prepareForm();
-          console.log('onInit', appSettings);
           appSettings.players.forEach(() => {
             this.addPlayer();
           });

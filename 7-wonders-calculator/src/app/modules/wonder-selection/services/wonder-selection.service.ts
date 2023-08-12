@@ -23,10 +23,14 @@ export class WonderSelectionService {
     }
 
     let wonders = this.getBaseBoards();
-    if (appSettings.isLeadersActive) wonders.concat(this.getLeadersBoards());
-    if (appSettings.isCitiesActive) wonders.concat(this.getCitiesBoards());
-    if (appSettings.isArmadaActive) wonders.concat(this.getArmadaBoards());
-    if (appSettings.isEdificeActive) wonders.concat(this.getEdificeBoards());
+    if (appSettings.isLeadersActive)
+      wonders = wonders.concat(this.getLeadersBoards());
+    if (appSettings.isCitiesActive)
+      wonders = wonders.concat(this.getCitiesBoards());
+    if (appSettings.isArmadaActive)
+      wonders = wonders.concat(this.getArmadaBoards());
+    if (appSettings.isEdificeActive)
+      wonders = wonders.concat(this.getEdificeBoards());
 
     let sides = this.getBoardSides();
     let players = appSettings.players;
